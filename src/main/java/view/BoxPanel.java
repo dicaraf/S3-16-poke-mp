@@ -83,7 +83,6 @@ public class BoxPanel extends ImagePanel {
         });
         orderPanel.add(new JLabel("Order by"));
         orderPanel.add(comboBox);
-
         rightPanel.add(orderPanel, BorderLayout.SOUTH);*/
 
         rightPanel.add(scrollFrame, BorderLayout.CENTER);
