@@ -100,7 +100,7 @@ class MapController(private val view: View,
     */
   override protected def doPause(): Unit = {
     lastCoordinates = trainer.coordinate
-    audio.stop()
+    audio.pause()
     setFocusableOff()
   }
 

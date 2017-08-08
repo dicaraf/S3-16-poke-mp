@@ -14,6 +14,11 @@ trait Audio {
   def play(): Unit
 
   /**
+    * Pauses an audio
+    */
+  def pause(): Unit
+
+  /**
     * Stops an audio
     */
   def stop(): Unit
@@ -46,10 +51,15 @@ class AudioImpl(private val song: String) extends  Audio{
   /**
     * @inheritdoc
     */
-  override def stop(): Unit = {
+  override def pause(): Unit = {
     clip.stop()
     clip setMicrosecondPosition 0
   }
+
+  /**
+    * @inheritdoc
+    */
+  override def stop(): Unit = clip.close()
 
   /**
     * @inheritdoc

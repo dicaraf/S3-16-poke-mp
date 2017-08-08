@@ -3,6 +3,7 @@ package view.dialogue;
 import controller.GameController;
 import database.remote.DBConnect;
 import model.entities.Doctor$;
+import model.environment.Audio;
 import model.environment.AudioImpl;
 import utilities.Settings;
 
@@ -36,7 +37,8 @@ public class DoctorDialoguePanel extends DialoguePanel {
         }
         buttons.get(currentButton).requestFocus();
         buttons.get(0).addActionListener(e -> {
-            new AudioImpl(Settings.Audio$.MODULE$.HEALING_SOUND()).play();
+            Audio audio = new AudioImpl(Settings.Audio$.MODULE$.HEALING_SOUND());
+            audio.play();
             DBConnect.rechangeAllTrainerPokemon(gameController.trainer().id());
             dialogueLabel.setText(Doctor$.MODULE$.DIALOGUE_AFTER_HEAL());
             buttonPanel.removeAll();
@@ -47,6 +49,7 @@ public class DoctorDialoguePanel extends DialoguePanel {
             buttonPanel.add(button);
             buttons.add(button);
             button.requestFocus();
+            audio.stop();
             repaint();
         });
         buttons.get(1).addActionListener(e -> {
