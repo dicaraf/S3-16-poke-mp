@@ -6,7 +6,15 @@ import javax.swing.event.AncestorListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * JUtil allows you to perform focus operations avoiding code repetition in different JPanel classes
+ */
 public class JUtil {
+
+    /**
+     * Set focus to jComponent
+     * @param jComponent
+     */
     public static void setFocus(JComponent jComponent){
         jComponent.addAncestorListener(new AncestorListener() {
             @Override
@@ -26,6 +34,10 @@ public class JUtil {
         });
     }
 
+    /**
+     * Set enter click to jButton
+     * @param jButton
+     */
     public static void setEnterClick(JButton jButton){
         jButton.addKeyListener(new KeyAdapter() {
             @Override
@@ -37,6 +49,11 @@ public class JUtil {
         });
     }
 
+    /**
+     * Set enter click to jButton when focus is on jComponent
+     * @param jComponent
+     * @param jButton
+     */
     public static void setSubmitEnterClick(JComponent jComponent, JButton jButton){
         jComponent.addKeyListener(new KeyAdapter() {
             @Override
@@ -48,6 +65,11 @@ public class JUtil {
         });
     }
 
+    /**
+     * Set ESC click to jButton when focus is on jComponent
+     * @param jComponent
+     * @param jButton
+     */
     public static void setEscClick(JComponent jComponent, JButton jButton){
         jComponent.addKeyListener(new KeyAdapter() {
             @Override

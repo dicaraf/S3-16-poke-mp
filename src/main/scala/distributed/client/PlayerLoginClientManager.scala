@@ -48,7 +48,7 @@ class PlayerLoginClientManagerImpl(private val connection: Connection) extends P
     */
   override def sendPlayer(player: Player): Unit = {
     val playerMessage = PlayerMessage(player)
-    channel.basicPublish("", Constants.PLAYER_LOGIN_CHANNEL_QUEUE, null, gson.toJson(playerMessage).getBytes("UTF-8"))
+    channel.basicPublish("", Constants.PLAYER_LOGIN_CHANNEL_QUEUE, null, (gson toJson playerMessage).getBytes("UTF-8"))
   }
 
   /**

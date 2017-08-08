@@ -15,5 +15,7 @@ class PokemonInTeamPanel extends PokemonPanel{
         setPokemon(pokemonWithLife);
         this.backButton.setVisible(true);
         this.backButton.addActionListener(e-> gameMenuController.showTeam());
+        JUtil.setFocus(this);
+        JUtil.setEscClick(this, this.backButton);
     }
 }

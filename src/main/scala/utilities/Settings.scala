@@ -44,6 +44,16 @@ object Settings {
 
     lazy val LABORATORY_DOOR_Y = 3
 
+    lazy val POKEMON_CENTER_INSIDE_WIDTH = 15
+
+    lazy val POKEMON_CENTER_INSIDE_HEIGHT = 9
+
+    lazy val LABORATORY_INSIDE_WIDTH = 13
+
+    lazy val LABORATORY_INSIDE_HEIGHT = 13
+
+    lazy val SECONDS_WAITING_TIME_FIGHT_REQUEST = 15
+
     lazy val DATABASE_FOLDER =  "/database/"
 
     lazy val INITIAL_TRAINER_LEVEL = 1
@@ -322,14 +332,32 @@ object Settings {
 
     lazy val BATTLE_PANEL_BACKGROUND: String = PANELS_FOLDER + "battle.png"
 
+    lazy val GAME_MENU_POKEDEX_ICON: String = GAME_MENU_IMAGES + "pokedex.png"
+
+    lazy val GAME_MENU_TEAM_ICON: String = GAME_MENU_IMAGES + "team.png"
+
+    lazy val GAME_MENU_TRAINER_ICON: String = GAME_MENU_IMAGES + "trainer.png"
+
+    lazy val GAME_MENU_RANKING_ICON: String = GAME_MENU_IMAGES + "ranking.png"
+
+    lazy val GAME_MENU_KEYBOARD_ICON: String = GAME_MENU_IMAGES + "keyboard.png"
+
+    lazy val GAME_MENU_LOGOUT_ICON: String = GAME_MENU_IMAGES + "logout.png"
+
+    lazy val GAME_MENU_EXIT_ICON: String = GAME_MENU_IMAGES + "exit.png"
+
   }
 
   object Strings {
-    lazy val CLASSIC_DIALOGUE_BUTTON: util.List[String] = util.Arrays.asList("next")
+    lazy val NEXT_DIALOGUE_BUTTON: String = "next"
+
+    lazy val FINAL_DIALOGUE_BUTTON: String = "bye"
 
     lazy val DOCTOR_DIALOGUE_BUTTON: util.List[String] = util.Arrays.asList("yes", "no")
 
-    lazy val TRAINER_DIALOGUE_BUTTON: util.List[String] = util.Arrays.asList("fight", "bye")
+    lazy val TRAINER_DIALOGUE_BUTTON: util.List[String] = util.Arrays.asList("fight", FINAL_DIALOGUE_BUTTON)
+
+    lazy val WAITING_TRAINER_LABEL: String = "Waiting for an answer from "
 
     lazy val LOGIN_BUTTON =  "Login"
 
@@ -370,5 +398,9 @@ object Settings {
     lazy val TEAM_PANEL_INFO = "Use arrow keys to select your Pokemon, then Enter to choose it."
 
     lazy val BUSY_MESSAGE = " is busy, try again later!"
+
+    lazy val JOPTIONPANE_LOGOUT_TITLE = "Logout"
+
+    lazy val JOPTIONPANE_LOGOUT_MESSAGE = "Do you really want to log out?"
   }
 }

@@ -53,7 +53,7 @@ class PlayerIsBusyClientManagerImpl(private val connection: Connection) extends 
     */
   override def sendPlayerIsBusy(userId: Int, isBusy: Boolean): Unit = {
     val playerIsBusyMessage = PlayerIsBusyMessage(userId, isBusy)
-    channel.basicPublish("", Constants.PLAYER_IS_BUSY_CHANNEL_QUEUE, null, gson.toJson(playerIsBusyMessage).getBytes("UTF-8"))
+    channel.basicPublish("", Constants.PLAYER_IS_BUSY_CHANNEL_QUEUE, null, (gson toJson playerIsBusyMessage).getBytes("UTF-8"))
   }
 
   /**

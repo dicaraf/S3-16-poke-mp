@@ -17,7 +17,8 @@ dependencies {
     compile 'org.scala-lang:scala-library:2.12.2'
     compile 'mysql:mysql-connector-java:5.1.42'
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.18.0'
-    compile 'org.scalatest:scalatest_2.12:3.0.3'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.3'
+    testCompile 'org.scalamock:scalamock-scalatest-support_2.12:3.6.0'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.rabbitmq:amqp-client:4.1.1'
 }

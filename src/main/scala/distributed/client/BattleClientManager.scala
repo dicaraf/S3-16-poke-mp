@@ -26,8 +26,6 @@ trait BattleClientManager {
     * equal to 0 it informs the battle controller that the battle id finished.
     */
   def receiveBattleMessage(): Unit
-
-  def closeChannels(): Unit
 }
 
 object BattleClientManager {
@@ -90,7 +88,7 @@ class BattleClientManagerImpl(private val connection: Connection,
     channel.basicConsume(otherChannelName,true,consumer)
   }
 
-  override def closeChannels(): Unit = {
+  private def closeChannels(): Unit = {
     channel.queueDelete(myChannelName)
     channel.queueDelete(otherChannelName)
     channel.close()

@@ -52,7 +52,7 @@ class PlayerPositionClientManagerImpl(private val connection: Connection) extend
     */
   override def sendPlayerPosition(userId: Int, position: Coordinate): Unit = {
     val playerPositionMessage = PlayerPositionMessage(userId, position)
-    channel.basicPublish("", Constants.PLAYER_POSITION_CHANNEL_QUEUE, null, gson.toJson(playerPositionMessage).getBytes("UTF-8"))
+    channel.basicPublish("", Constants.PLAYER_POSITION_CHANNEL_QUEUE, null, (gson toJson playerPositionMessage).getBytes("UTF-8"))
   }
 
   /**

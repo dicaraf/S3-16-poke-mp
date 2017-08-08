@@ -37,7 +37,6 @@ class AudioImpl(private val song: String) extends  Audio{
   private val audio: AudioInputStream = AudioSystem getAudioInputStream getClass.getResource(song)
   private val clip: Clip = AudioSystem.getClip
   clip open audio
-  play()
 
   /**
     * @inheritdoc

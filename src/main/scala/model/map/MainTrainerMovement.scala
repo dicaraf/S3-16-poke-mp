@@ -2,7 +2,7 @@ package model.map
 
 import model.entities.{Sprite, Trainer, TrainerSprites}
 import model.environment.{Coordinate, CoordinateImpl}
-import view.GamePanel
+import view.map.GamePanel
 
 /**
   * MainTrainerMovement represent the movement of the main trainer in the map

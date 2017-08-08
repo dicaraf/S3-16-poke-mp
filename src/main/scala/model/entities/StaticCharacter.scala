@@ -7,20 +7,34 @@ import model.environment.{Coordinate, CoordinateImpl}
 import utilities.Settings
 import view.LoadImage
 
-
+/**
+  * StaticCharacter defines a static character in a map
+  */
 trait StaticCharacter {
 
+  /**
+    * @return character's height (in px)
+    */
   def HEIGHT: Int
 
+  /**
+    * @return character's image
+    */
   def image: Image
 
+  /**
+    * @return character's coordinate in a map
+    */
   def coordinate: Coordinate
 
+  /**
+    * @return character's dialogue when someone interacts with him
+    */
   def dialogue: List[String]
 
 }
 
-object Oak{
+object Oak {
   private final val DIALOGUE_1: String = "Hi!"
 
   private final val DIALOGUE_2: String = "Welcome to Pokémon World."
@@ -30,7 +44,10 @@ object Oak{
   private final val DIALOGUE_4: String = "Good adventure!"
 }
 
-class Oak extends StaticCharacter{
+/**
+  * Oak is a StaticCharacter in LaboratoryMap
+  */
+class Oak extends StaticCharacter {
   import Oak._
 
   override val HEIGHT: Int = 40
@@ -43,7 +60,7 @@ class Oak extends StaticCharacter{
 
 }
 
-object OakAfterChoise{
+object OakAfterChoise {
   private final val DIALOGUE_1: String = "Hey, how are you doing?"
 
   private final val DIALOGUE_2: String = "I see the pokemon you chose is happy!"
@@ -53,14 +70,17 @@ object OakAfterChoise{
   private final val DIALOGUE_4: String = "Gotta Catch 'Em All!"
 }
 
-class OakAfterChoise extends Oak{
+/**
+  * Oak with a different dialogue
+  */
+class OakAfterChoise extends Oak {
   import OakAfterChoise._
 
   override val dialogue: List[String] = List(DIALOGUE_1, DIALOGUE_2, DIALOGUE_3, DIALOGUE_4)
 
 }
 
-object Doctor{
+object Doctor {
   private final val DIALOGUE_1: String = "Hi trainer!"
 
   private final val DIALOGUE_2: String = "Do you want to heal your Pokémon?"
@@ -68,8 +88,10 @@ object Doctor{
   final val DIALOGUE_AFTER_HEAL: String = "Your Pokémon has been healed!"
 }
 
-class Doctor extends StaticCharacter{
-
+/**
+  * Doctor is a StaticCharacter in PokemonCenterMap
+  */
+class Doctor extends StaticCharacter {
   import Doctor._
 
   override val HEIGHT: Int = 82
@@ -81,7 +103,10 @@ class Doctor extends StaticCharacter{
   override val dialogue: List[String] = List(DIALOGUE_1, DIALOGUE_2)
 }
 
-trait PokemonCharacter extends StaticCharacter{
+/**
+  * PokemonCharacter is a StaticCharacter in LaboratoryMap
+  */
+trait PokemonCharacter extends StaticCharacter {
 
   override def HEIGHT: Int = 32
 
@@ -90,8 +115,8 @@ trait PokemonCharacter extends StaticCharacter{
   def pokemonWithLife: PokemonWithLife
 }
 
-object PokemonCharacter{
-  object InitialPokemon extends Enumeration{
+object PokemonCharacter {
+  object InitialPokemon extends Enumeration {
     type InitialPokemon = Value
     val Bulbasaur, Charmander, Squirtle = Value
   }
@@ -103,7 +128,10 @@ object PokemonCharacter{
   }
 }
 
-case class Bulbasaur() extends PokemonCharacter{
+/**
+  * Bulbasaur is a PokemonCharacter
+  */
+case class Bulbasaur() extends PokemonCharacter {
   override val pokemonWithLife: PokemonWithLife = PokemonFactory.createPokemon(Owner.INITIAL, Optional.of(1), Optional.of(1)).get()
 
   override val image: Image = LoadImage.load(Settings.Images.CHARACTER_IMAGES_FOLDER + "bulbasaur.png")
@@ -113,7 +141,10 @@ case class Bulbasaur() extends PokemonCharacter{
   override val dialogue: List[String] = List("Bulbasaaaaur")
 }
 
-case class Charmander() extends PokemonCharacter{
+/**
+  * Charmander is a PokemonCharacter
+  */
+case class Charmander() extends PokemonCharacter {
   override val pokemonWithLife: PokemonWithLife = PokemonFactory.createPokemon(Owner.INITIAL, Optional.of(4), Optional.of(1)).get()
 
   override val image: Image = LoadImage.load(Settings.Images.CHARACTER_IMAGES_FOLDER + "charmander.png")
@@ -123,7 +154,10 @@ case class Charmander() extends PokemonCharacter{
   override val dialogue: List[String] = List("Chaaaarmandeeer")
 }
 
-case class Squirtle() extends PokemonCharacter{
+/**
+  * Squirtle is a PokemonCharacter
+  */
+case class Squirtle() extends PokemonCharacter {
   override val pokemonWithLife: PokemonWithLife = PokemonFactory.createPokemon(Owner.INITIAL, Optional.of(7), Optional.of(1)).get()
 
   override val image: Image = LoadImage.load(Settings.Images.CHARACTER_IMAGES_FOLDER + "squirtle.png")

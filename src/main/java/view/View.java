@@ -5,6 +5,8 @@ import model.entities.PokemonWithLife;
 import model.map.BuildingMap;
 import model.map.GameMap;
 import model.entities.Trainer;
+import view.initial_menu.LoginPanel;
+import view.map.GamePanelImpl;
 
 import javax.swing.*;
 
@@ -54,7 +56,7 @@ public interface View {
      * Return the GamePanel
      * @return gamePanel
      */
-    GamePanel getGamePanel();
+    GamePanelImpl getGamePanel();
 
     /**
      * Show the computer box, at the pokemon center

@@ -54,7 +54,7 @@ class PlayerInBuildingClientManagerImpl(private val connection: Connection) exte
     */
   override def sendPlayerIsInBuilding(userId: Int, isInBuilding: Boolean): Unit = {
     val playerInBuildingMessage = PlayerInBuildingMessage(userId, isInBuilding)
-    channel.basicPublish("", Constants.PLAYER_IN_BUILDING_CHANNEL_QUEUE, null, gson.toJson(playerInBuildingMessage).getBytes("UTF-8"))
+    channel.basicPublish("", Constants.PLAYER_IN_BUILDING_CHANNEL_QUEUE, null, (gson toJson playerInBuildingMessage).getBytes("UTF-8"))
   }
 
   /**

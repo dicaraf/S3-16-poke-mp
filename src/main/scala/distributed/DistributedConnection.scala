@@ -18,7 +18,7 @@ trait DistributedConnection {
   def close(): Unit
 }
 
-object DistributedConnectionImpl {
+object DistributedConnection {
   def apply(): DistributedConnection = new DistributedConnectionImpl()
 }
 

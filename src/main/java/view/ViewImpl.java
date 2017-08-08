@@ -8,6 +8,12 @@ import model.map.BuildingMap;
 import model.map.GameMap;
 import model.entities.Trainer;
 import utilities.Settings;
+import view.dialogue.DialoguePanel;
+import view.game_menu.*;
+import view.initial_menu.InitialMenuPanel;
+import view.initial_menu.LoginPanel;
+import view.initial_menu.SignInPanel;
+import view.map.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +27,7 @@ public class ViewImpl extends JFrame implements View {
     private static final String WINDOW_TITLE = "Pokemon MP";
     private Dimension frameDiminsion;
     private BattleView battlePanel;
-    private GamePanel gamePanel;
+    private GamePanelImpl gamePanel;
     private LoginPanel loginPanel;
     private DialoguePanel currentDialogue;
 
@@ -111,7 +117,7 @@ public class ViewImpl extends JFrame implements View {
      * @inheritdoc
      */
     @Override
-    public GamePanel getGamePanel() { return this.gamePanel; }
+    public GamePanelImpl getGamePanel() { return this.gamePanel; }
     /**
      * @inheritdoc
      */

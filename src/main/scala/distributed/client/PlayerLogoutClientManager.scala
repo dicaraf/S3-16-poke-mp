@@ -50,7 +50,7 @@ class PlayerLogoutClientManagerImpl(private val connection: Connection) extends 
     */
   override def sendPlayerLogout(userId: Int): Unit = {
     val logoutMessage = PlayerLogoutMessage(userId)
-    channel.basicPublish("", Constants.PLAYER_LOGOUT_CHANNEL_QUEUE, null, gson.toJson(logoutMessage).getBytes("UTF-8"))
+    channel.basicPublish("", Constants.PLAYER_LOGOUT_CHANNEL_QUEUE, null, (gson toJson logoutMessage).getBytes("UTF-8"))
   }
 
   /**

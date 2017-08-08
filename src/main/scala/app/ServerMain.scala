@@ -1,10 +1,10 @@
 package app
 
-import distributed.{ConnectedPlayers, DistributedConnectionImpl}
 import distributed.server._
+import distributed.{ConnectedPlayers, DistributedConnection}
 
 object ServerMain extends App{
-  val connection = DistributedConnectionImpl().connection
+  val connection = DistributedConnection().connection
   val connectedPlayers = ConnectedPlayers()
 
   CommunicationService(CommunicationService.Service.PlayerLogin, connection, connectedPlayers).start()

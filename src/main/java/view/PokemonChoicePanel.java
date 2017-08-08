@@ -5,6 +5,8 @@ import model.entities.PokemonWithLife;
 import model.entities.Trainer;
 import scala.Tuple3;
 import utilities.Settings;
+import view.JUtil;
+import view.game_menu.TeamPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,7 +20,7 @@ import java.io.IOException;
  * PokemonChoicPanel extends TeamPanel and it is used when you need to make the trainer choose a different Pokemon
  * (for example during a battle).
  */
-class PokemonChoicePanel extends TeamPanel{
+class PokemonChoicePanel extends TeamPanel {
     private static final int FONT_SIZE = (int) (Settings.Constants$.MODULE$.FRAME_SIDE() * 0.034);
     private static final int infoSide = (int) (Settings.Constants$.MODULE$.FRAME_SIDE() * 0.05);
 
