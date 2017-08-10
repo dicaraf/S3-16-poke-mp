@@ -7,7 +7,7 @@ import distributed.messages.{PlayerInBuildingMessage, PlayerInBuildingMessageImp
 import utilities.Settings
 
 /**
-  * PlayerInBuildingClientManager sends and receives PlayerIsInBuildingMessages and update the related attributed of the player
+  * PlayerInBuildingClientManager sends and receives PlayerIsInBuildingMessages and update the related attribute of the player
   * in the map of connected players
   */
 trait PlayerInBuildingClientManager {

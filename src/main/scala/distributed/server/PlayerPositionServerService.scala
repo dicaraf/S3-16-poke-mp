@@ -39,7 +39,7 @@ class PlayerPositionServerService(private val connection: Connection,
         val positionMessage = gson.fromJson(new String(body, "UTF-8"), classOf[PlayerPositionMessageImpl])
 
         if (connectedPlayers containsPlayer positionMessage.userId) {
-          connectedPlayers.get(positionMessage.userId).position = positionMessage.position
+          connectedPlayers.updateTrainerPosition(positionMessage.userId, positionMessage.position)
 
           channel.exchangeDeclare(Constants.PLAYER_POSITION_EXCHANGE, "fanout")
           val response = gson toJson positionMessage

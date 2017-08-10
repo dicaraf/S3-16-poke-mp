@@ -8,7 +8,7 @@ import utilities.Settings
 
 
 /**
-  * PlayerIsBusyClientManager sends and receives PlayerIsBusyMessages and update the related attributed for the
+  * PlayerIsBusyClientManager sends and receives PlayerIsBusyMessages and update the related attribute for the
   * local variable of the connected user.
   */
 trait PlayerIsBusyClientManager {
