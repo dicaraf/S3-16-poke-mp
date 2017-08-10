@@ -79,6 +79,26 @@ class ConnectedPlayersTest extends FunSuite {
     assert(f.connectedPlayers.get(userId).position == newPosition)
   }
 
+  test("updateTrainerIsVisible() should correctly update the trainer visibility") {
+    val f = fixture
+    val userId = 1
+    val player = createPlayer(userId)
+    player.isVisible = true
+    f.connectedPlayers.add(player.userId,player)
+    f.connectedPlayers.updateTrainerIsVisible(userId, false)
+    assert(!f.connectedPlayers.get(userId).isVisible)
+  }
+
+  test("updateTrainerIsBusy() should correctly update if the trainer is busy") {
+    val f = fixture
+    val userId = 1
+    val player = createPlayer(userId)
+    player.isBusy = false
+    f.connectedPlayers.add(player.userId,player)
+    f.connectedPlayers.updateTrainerIsBusy(userId, true)
+    assert(f.connectedPlayers.get(userId).isBusy)
+  }
+
   private def createPlayer(userId: Int) = {
     PlayerImpl(userId,"",1)
   }

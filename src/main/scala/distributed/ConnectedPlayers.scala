@@ -56,6 +56,20 @@ trait ConnectedPlayers {
   def updateTrainerPosition(userId: Int, position: Coordinate): Unit
 
   /**
+    * Updates the visibility of a trainer
+    * @param userId trainer id
+    * @param isVisible trainer visibility
+    */
+  def updateTrainerIsVisible(userId: Int, isVisible: Boolean): Unit
+
+  /**
+    * Updates if trainer a trainer is busy
+    * @param userId trainer id
+    * @param isBusy true if trainer is busy, false in the other case
+    */
+  def updateTrainerIsBusy(userId: Int, isBusy: Boolean): Unit
+
+  /**
     * Adds an observer to the map
     * @param observer instance of connected player observer
     */
@@ -133,7 +147,22 @@ class ConnectedPlayersImpl extends ConnectedPlayers{
 
   /**
     * @inheritdoc
+    * @param userId    trainer id
+    * @param isVisible trainer visibility
+    */
+  override def updateTrainerIsVisible(userId: Int, isVisible: Boolean): Unit = get(userId).isVisible = isVisible
+
+  /**
+    * @inheritdoc
+    * @param userId trainer id
+    * @param isBusy true if trainer is busy, false in the other case
+    */
+  override def updateTrainerIsBusy(userId: Int, isBusy: Boolean): Unit = get(userId).isBusy = isBusy
+
+  /**
+    * @inheritdoc
     * @param observer instance of connected player observer
     */
   override def addObserver(observer: ConnectedPlayersObserver): Unit = observers = observers :+ observer
+
 }

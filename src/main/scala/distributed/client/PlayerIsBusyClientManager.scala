@@ -69,7 +69,7 @@ class PlayerIsBusyClientManagerImpl(private val connection: Connection) extends 
         val playerIsBusyMessage = gson.fromJson(new String(body, "UTF-8"), classOf[PlayerIsBusyMessageImpl])
 
         if (playerIsBusyMessage.userId != userId && connectedPlayers.containsPlayer(playerIsBusyMessage.userId))
-          connectedPlayers.get(playerIsBusyMessage.userId).isBusy = playerIsBusyMessage.isBusy
+          connectedPlayers.updateTrainerIsBusy(playerIsBusyMessage.userId, playerIsBusyMessage.isBusy)
       }
 
     }

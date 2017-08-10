@@ -4,7 +4,7 @@ import model.environment.{Coordinate, CoordinateImpl}
 
 /**
   * @inheritdoc
-  * GameMap represent the map of the game composed by tile that represent elements of the map
+  * GameMap represents the map of the game composed by tiles that represent elements of the map
   */
 trait GameMap extends BasicMap{
   /**

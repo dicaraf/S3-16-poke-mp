@@ -32,7 +32,7 @@ class PlayerIsBusyServerService(private val connection: Connection, private val 
         val gson = new Gson()
         val playerIsBusyMessage = gson.fromJson(new String(body, "UTF-8"), classOf[PlayerIsBusyMessageImpl])
 
-        connectedPlayers.get(playerIsBusyMessage.userId).isBusy = playerIsBusyMessage.isBusy
+        connectedPlayers.updateTrainerIsBusy(playerIsBusyMessage.userId,playerIsBusyMessage.isBusy)
 
         channel.exchangeDeclare(Constants.PLAYER_IS_BUSY_EXCHANGE, "fanout")
         val response = gson.toJson(playerIsBusyMessage)
