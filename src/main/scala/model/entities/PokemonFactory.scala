@@ -6,6 +6,7 @@ import database.remote.DBConnect
 import scala.collection.mutable
 import scala.util.Random
 
+
 /**
   * PokemonFactory is a static class that returns an instance of a pokemon:
   *  - if the pokemon is wild, the pokemon will be created from zero (the level of the trainer allows to create pokemon even more rare and strong).

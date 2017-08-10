@@ -48,8 +48,15 @@ class PokemonDBTest extends FunSuite {
     info("getMinLevelWildPokemon and getMaxLevelWildPokemon works correctly")
   }
 
-  test("Create new pokemon wild") {
-    val p1: PokemonWithLife = PokemonFactory.createPokemon(Owner.WILD,Optional.empty(),Optional.of(5)).get()
+  test("Create new pokemon wild and check attacks") {
+    val pokemon: PokemonWithLife = PokemonFactory.createPokemon(Owner.WILD,Optional.empty(),Optional.of(5)).get()
+    assert(pokemon.pokemon.attacks._1 != pokemon.pokemon.attacks._2)
+    assert(pokemon.pokemon.attacks._1 != pokemon.pokemon.attacks._3)
+    assert(pokemon.pokemon.attacks._1 != pokemon.pokemon.attacks._4)
+    assert(pokemon.pokemon.attacks._2 != pokemon.pokemon.attacks._3)
+    assert(pokemon.pokemon.attacks._2 != pokemon.pokemon.attacks._4)
+    assert(pokemon.pokemon.attacks._3 != pokemon.pokemon.attacks._4)
+    info("attacks are correctly different")
   }
 
 }
