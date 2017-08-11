@@ -50,7 +50,7 @@ class PokemonChoicePanel extends TeamPanel {
             pokemonRadioButton._1().addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                    if (e.getKeyChar() == KeyEvent.VK_SPACE) {
                         for(Tuple3<JRadioButton,PokemonWithLife,Integer> radioButton: buttonList){
                             if(radioButton._1().isSelected()){
                                 controller.pokemonToChangeIsSelected(radioButton._3());

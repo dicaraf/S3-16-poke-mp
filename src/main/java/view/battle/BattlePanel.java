@@ -270,24 +270,44 @@ public class BattlePanel extends ImagePanel implements BattleView {
         this.addKeyListener(new KeyListener() {
             @Override
             public void keyPressed(KeyEvent e) {
+                Object[] names = attacks.keySet().toArray();
+                Object[] choices = trainerChoices.keySet().toArray();
                 switch(e.getKeyCode()) {
                     case KeyEvent.VK_DOWN:
-                        if(index<trainerChoices.size()-1){
+                        if(attacksAreVisible && index < trainerChoices.size() - 2) {
+                            index = index + 2;
+                        }else if(!attacksAreVisible && index < trainerChoices.size()-1){
                             index++;
                         }
                         break;
                     case KeyEvent.VK_UP:
-                        if(index>0) {
+                        if(attacksAreVisible && index > 1){
+                            index = index - 2;
+                        }else if(!attacksAreVisible && index > 0) {
                             index--;
                         }
                         break;
+                    case KeyEvent.VK_LEFT:
+                        if(attacksAreVisible && index > 0) {
+                            index--;
+                        }
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        if(attacksAreVisible && index < trainerChoices.size()-1) {
+                            index++;
+                        }
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        if(attacksAreVisible){
+                            attacks.get(names[index].toString()).doClick();
+                        }else{
+                            trainerChoices.get(choices[index].toString()).doClick();
+                        }
                     default: break;
                 }
                 if(!attacksAreVisible) {
-                    Object[] choices = trainerChoices.keySet().toArray();
                     frame.getRootPane().setDefaultButton(trainerChoices.get(choices[index].toString()));
                 } else {
-                    Object[] names = attacks.keySet().toArray();
                     frame.getRootPane().setDefaultButton(attacks.get(names[index].toString()));
                 }
 

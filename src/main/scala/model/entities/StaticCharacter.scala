@@ -110,8 +110,6 @@ trait PokemonCharacter extends StaticCharacter {
 
   override def HEIGHT: Int = 32
 
-  def image: Image
-
   def pokemonWithLife: PokemonWithLife
 }
 

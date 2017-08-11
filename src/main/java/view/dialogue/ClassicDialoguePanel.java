@@ -28,7 +28,7 @@ public class ClassicDialoguePanel extends DialoguePanel {
         buttons.clear();
         final JButton finalButton = new JButton(Settings.Strings$.MODULE$.FINAL_DIALOGUE_BUTTON());
         finalButton.addActionListener(e -> {
-            gameController.setFocusableOn();
+            gameController.setFocusable(true);
             this.setVisible(false);
         });
         buttonPanel.add(finalButton);

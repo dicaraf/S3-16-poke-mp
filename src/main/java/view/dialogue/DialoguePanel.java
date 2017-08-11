@@ -33,8 +33,8 @@ public abstract class DialoguePanel extends JPanel implements KeyListener{
         add(dialogueLabel, BorderLayout.CENTER);
         buttonPanel.setBackground(Color.WHITE);
         add(buttonPanel, BorderLayout.SOUTH);
+        dialogueLabel.setText(dialogues.get(currentDialogue));
         if(dialogues.size() != 1){
-            dialogueLabel.setText(dialogues.get(currentDialogue));
             final JButton buttonNext = new JButton(Settings.Strings$.MODULE$.NEXT_DIALOGUE_BUTTON());
             buttonNext.addActionListener(e -> {
                 if (dialogues.size() > currentDialogue) {

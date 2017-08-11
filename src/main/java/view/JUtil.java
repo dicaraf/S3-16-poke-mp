@@ -38,7 +38,7 @@ public class JUtil {
      * Set enter click to jButton
      * @param jButton
      */
-    public static void setEnterClick(JButton jButton){
+    public static void setEnterClick(AbstractButton jButton){
         jButton.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -54,7 +54,7 @@ public class JUtil {
      * @param jComponent
      * @param jButton
      */
-    public static void setSubmitEnterClick(JComponent jComponent, JButton jButton){
+    public static void setSubmitEnterClick(JComponent jComponent, AbstractButton jButton){
         jComponent.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -70,7 +70,7 @@ public class JUtil {
      * @param jComponent
      * @param jButton
      */
-    public static void setEscClick(JComponent jComponent, JButton jButton){
+    public static void setEscClick(JComponent jComponent, AbstractButton jButton){
         jComponent.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {

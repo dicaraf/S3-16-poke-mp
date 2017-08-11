@@ -60,6 +60,7 @@ trait PokemonBehaviour {
 class PokemonBehaviourImpl(var pokemonWithLife: PokemonWithLife) extends PokemonBehaviour {
   private val ATTACK_PERCENTAGE: Double = 0.2
   private val GIVE_EXPERIENCE_PERCENTAGE: Double = 0.40
+  private val UNDERGO_PERCENTAGE: Double = 1.01
   private var _isAlive: Boolean = true
   private var pokemonExperienceGrown = 0
 
@@ -74,7 +75,8 @@ class PokemonBehaviourImpl(var pokemonWithLife: PokemonWithLife) extends Pokemon
     * @inheritdoc
     */
   override def undergoAttack(damage: Int): Unit = {
-    val pokemonStatus: PokemonStatus.Value = pokemonWithLife.loseLifePoints(damage)
+    val damageWeighed: Int = (damage/math.pow(UNDERGO_PERCENTAGE,pokemonWithLife.pokemon.level)).toInt
+    val pokemonStatus: PokemonStatus.Value = pokemonWithLife.loseLifePoints(damageWeighed)
     if(pokemonStatus == PokemonStatus.DEATH) { _isAlive = false }
   }
   /**

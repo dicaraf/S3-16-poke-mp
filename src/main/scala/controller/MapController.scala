@@ -101,7 +101,7 @@ class MapController(private val view: View,
   override protected def doPause(): Unit = {
     lastCoordinates = trainer.coordinate
     audio.pause()
-    setFocusableOff()
+    setFocusable(false)
   }
 
   /**
@@ -114,7 +114,7 @@ class MapController(private val view: View,
     trainer.coordinate = lastCoordinates
     initView()
     audio.loop()
-    setFocusableOn()
+    setFocusable(true)
   }
 
   /**

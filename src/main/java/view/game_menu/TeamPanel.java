@@ -49,9 +49,6 @@ public class TeamPanel extends BasePanel {
         ImageIcon myImageIcon = null;
         k.insets = new Insets(1,1,1,1);
 
-        JUtil.setFocus(this);
-        JUtil.setEscClick(this, this.backButton);
-
         for(Object pokemon: pokemonList){
             if(Integer.parseInt(pokemon.toString()) != 0){
                 final int pokemonId = Integer.parseInt(pokemon.toString());
@@ -81,13 +78,12 @@ public class TeamPanel extends BasePanel {
                 radioButton.addKeyListener(new KeyAdapter() {
                     @Override
                     public void keyTyped(KeyEvent e) {
-                        if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                        if (e.getKeyChar() == KeyEvent.VK_SPACE) {
                             gameMenuController.showPokemonInTeamPanel(pokemonWithLife);
                         }
                     }
                 });
                 if(first){
-                    radioButton.requestFocus();
                     radioButton.setSelected(true);
                     radioButton.setFont(new Font(Settings.Constants$.MODULE$.FONT_NAME(), Font.BOLD, FONT_SIZE));
                     JUtil.setFocus(radioButton);
@@ -99,6 +95,11 @@ public class TeamPanel extends BasePanel {
                 this.centralPanel.add(radioButton, k);
                 k.gridy++;
             }
+        }
+
+        if(pokemonButtonGroup.getButtonCount() == 0){
+            JUtil.setFocus(this);
+            JUtil.setEscClick(this, this.backButton);
         }
 
         this.backButton.addActionListener(e -> {

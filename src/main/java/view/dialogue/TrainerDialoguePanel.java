@@ -51,7 +51,7 @@ public class TrainerDialoguePanel extends DialoguePanel {
             button.addActionListener(e ->{
                 running = false;
                 this.setVisible(false);
-                gameController.setFocusableOn();
+                gameController.setFocusable(true);
             });
             buttonPanel.add(button);
             buttons.add(button);

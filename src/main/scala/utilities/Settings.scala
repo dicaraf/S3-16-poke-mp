@@ -395,7 +395,7 @@ object Settings {
 
     lazy val DONT_WANT_TO_FIGHT = " refused to fight :("
 
-    lazy val TEAM_PANEL_INFO = "Use arrow keys to select your Pokemon, then Enter to choose it."
+    lazy val TEAM_PANEL_INFO = "Use arrow keys to select your Pokemon, then SPACE to choose it."
 
     lazy val BUSY_MESSAGE = " is busy, try again later!"
 

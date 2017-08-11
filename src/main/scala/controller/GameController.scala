@@ -105,14 +105,9 @@ trait GameController {
   def showDialogue(dialoguePanel: DialoguePanel): Unit
 
   /**
-    * Makes the current view focusable
+    * Set the current view focusable or not
     */
-  def setFocusableOn(): Unit
-
-  /**
-    * Makes the current view not focusable
-    */
-  def setFocusableOff(): Unit
+  def setFocusable(isFocusable: Boolean): Unit
 
   /**
     * Create a battle with another player's trainer
@@ -267,19 +262,14 @@ abstract class GameControllerImpl(private var view: View,
     * @param dialoguePanel the panel to be shown
     */
   override def showDialogue(dialoguePanel: DialoguePanel): Unit = {
-    setFocusableOff()
+    setFocusable(false)
     view showDialogue dialoguePanel
   }
 
   /**
     * @inheritdoc
     */
-  override def setFocusableOn(): Unit = gamePanel setFocusable true
-
-  /**
-    * @inheritdoc
-    */
-  override def setFocusableOff(): Unit = gamePanel setFocusable false
+  override def setFocusable(isFocusable: Boolean): Unit = gamePanel setFocusable isFocusable
 
   /**
     * Calculate the trainer's position after the movement

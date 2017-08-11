@@ -50,6 +50,7 @@ public class GameMenuPanel extends JPanel{
             menuButton.setBackground(Color.WHITE);
             buttonGroup.add(menuButton);
             add(menuButton);
+            JUtil.setEscClick(menuButton, menuButtons[6]);
         }
         menuButtons[0].setSelected(true);
         JUtil.setFocus(menuButtons[0]);

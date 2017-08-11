@@ -30,17 +30,17 @@ public class KeyboardPanel extends BasePanel {
         northPanel.add(expl,BorderLayout.CENTER);
         this.add(northPanel,BorderLayout.NORTH);
 
-        this.centralPanel.add(createLabel("Space: Chat with people"), k);
+        this.centralPanel.add(createLabel("Space: interact with people/confirm choice during battle"), k);
         k.gridy++;
-        this.centralPanel.add(createLabel("Up arrow: trainer moves up/browse choices during battle"), k);
+        this.centralPanel.add(createLabel("Up arrow: trainer moves up"), k);
         k.gridy++;
         this.centralPanel.add(createLabel("Right arrow: trainer moves right"), k);
         k.gridy++;
-        this.centralPanel.add(createLabel("Down arrow: trainer moves down/select choices during battle"), k);
+        this.centralPanel.add(createLabel("Down arrow: trainer moves down"), k);
         k.gridy++;
         this.centralPanel.add(createLabel("Left arrow: trainer moves left"), k);
         k.gridy++;
-        this.centralPanel.add(createLabel("Enter: confirm choice during battle"), k);
+        this.centralPanel.add(createLabel("Esc: open game menu"), k);
         k.gridy++;
 
         this.backButton.addActionListener(e -> {
