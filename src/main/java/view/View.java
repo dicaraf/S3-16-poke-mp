@@ -5,6 +5,7 @@ import model.entities.PokemonWithLife;
 import model.map.BuildingMap;
 import model.map.GameMap;
 import model.entities.Trainer;
+import view.battle.BattleView;
 import view.initial_menu.LoginPanel;
 import view.map.GamePanelImpl;
 

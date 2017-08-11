@@ -81,8 +81,11 @@ class BattleControllerImpl(private val controller: GameController, private val v
   private var timer: Thread = _
   battle.startBattleRound(controller.trainer.getFirstAvailableFavouritePokemon)
   showNewView()
-  private val audio: Audio = new AudioImpl(Settings.Audio.POKEMON_WILD_SONG)
+  private val audio: Audio = Audio(Settings.Audio.POKEMON_WILD_SONG)
   audio.loop()
+
+  private val audioCaptureFailed: Audio = Audio(Settings.Audio.CAPTURE_FAILED_SONG)
+  private val audioCapture: Audio = Audio(Settings.Audio.CAPTURE_SONG)
 
   /**
     * Manage the attack of trainer's Pokemon and, if the wild Pokemon is still alive, make the wild Pokemon attacks.
@@ -151,11 +154,11 @@ class BattleControllerImpl(private val controller: GameController, private val v
   override def trainerThrowPokeball(): Boolean = {
     battle.pokeball_=(battle.pokeball-1)
     if(!battle.pokemonIsCaptured()) {
-      Audio(Settings.Audio.CAPTURE_FAILED_SONG)
+      audioCaptureFailed.play()
       pokemonWildAttacksAfterTrainerChoice()
       false
     } else {
-      Audio(Settings.Audio.CAPTURE_SONG)
+      audioCapture.play()
       timer = new Thread() {
         override def run() {
           battle.updatePokemonAndTrainer(Settings.Constants.BATTLE_EVENT_CAPTURE_POKEMON)
@@ -188,6 +191,8 @@ class BattleControllerImpl(private val controller: GameController, private val v
     */
   override def resumeGame(): Unit = {
     audio.stop()
+    audioCapture.stop()
+    audioCaptureFailed.stop()
     controller.resume()
   }
   /**

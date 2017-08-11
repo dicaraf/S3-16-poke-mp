@@ -1,4 +1,4 @@
-package view;
+package view.battle;
 
 /**
  * BattleView receive information about the battle from the controller: after receiving this information, the view is updated

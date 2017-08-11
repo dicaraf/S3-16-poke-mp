@@ -8,6 +8,8 @@ import model.map.BuildingMap;
 import model.map.GameMap;
 import model.entities.Trainer;
 import utilities.Settings;
+import view.battle.BattlePanel;
+import view.battle.BattleView;
 import view.dialogue.DialoguePanel;
 import view.game_menu.*;
 import view.initial_menu.InitialMenuPanel;
@@ -145,7 +147,7 @@ public class ViewImpl extends JFrame implements View {
      * @inheritdoc
      */
     @Override
-    public  BattleView getBattlePanel(){
+    public BattleView getBattlePanel(){
         return this.battlePanel;
     }
     /**

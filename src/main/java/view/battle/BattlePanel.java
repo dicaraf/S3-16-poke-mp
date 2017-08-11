@@ -1,10 +1,12 @@
-package view;
+package view.battle;
 
 import controller.BattleController;
 import database.local.PokedexConnect;
 import model.entities.Owner;
 import model.entities.PokemonWithLife;
 import utilities.Settings;
+import view.ImagePanel;
+import view.LoadImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
