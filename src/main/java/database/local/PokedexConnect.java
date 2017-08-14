@@ -30,7 +30,7 @@ public final class PokedexConnect {
         if(con == null) {
             try {
                 Class.forName("org.sqlite.JDBC");
-                String url = "jdbc:sqlite:src/main/resources/database/pokedex.db";
+                String url = "jdbc:sqlite::resource:database/pokedex.db";
                 con = DriverManager.getConnection(url);
             } catch (SQLException e) {
                 e.printStackTrace();

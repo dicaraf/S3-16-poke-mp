@@ -81,11 +81,8 @@ public class SignInPanel extends BasePanel {
         this.centralPanel.add(submit, k);
 
         trainersBox.addActionListener(e -> {
-
             this.trainer = (Value)((JComboBox)e.getSource()).getSelectedItem();
-
             this.trainerImage = TrainerSprites$.MODULE$.apply(this.trainer.id()).frontS().image();
-
             label.setIcon(new ImageIcon(LoadImage.load(this.trainerImage)));
         });
 

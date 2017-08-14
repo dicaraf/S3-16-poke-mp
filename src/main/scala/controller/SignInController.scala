@@ -70,8 +70,6 @@ class SignInControllerImpl(private val initialMenuController: InitialMenuControl
         case _ if username.length < USERNAME_MIN_LENGTH => view.showMessage(Strings.SIGN_IN_USERNAME_ERROR, WRONG_SING_IN, JOptionPane.ERROR_MESSAGE)
         case _ if password.length < PASSWORD_MIN_LENGTH => view.showMessage(Strings.SIGN_IN_PASSWORD_ERROR, WRONG_SING_IN, JOptionPane.ERROR_MESSAGE)
         case _ =>
-
-
           if(DBConnect.insertCredentials(accountData, idImage)) {
             view.showMessage(Strings.CORRECT_SIGN_IN,SIGN_IN_SUCCEEDED,JOptionPane.INFORMATION_MESSAGE)
             view showInitialMenu initialMenuController
